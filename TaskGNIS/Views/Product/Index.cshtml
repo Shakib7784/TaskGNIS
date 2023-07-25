@@ -1,0 +1,278 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Product page</h1>
+<!-- Meeting Radio-->
+<div class="container card mb-0" style="background-color:#f5f9fc; height:30px">
+    <div class="row mb-0 pb-0">
+        <div class="col-6">
+            <h6 class="fs-6 fw-bold">Meeting Minutes</h6>
+        </div>
+        <div class="col-6 text-end">
+            <p><i class="bi bi-pencil-square"></i></p>
+        </div>
+    </div>
+  </div>
+
+
+
+    <!-- Meeting Information-->
+    <div class="container card mb-3 shadow p-3 bg-white rounded">
+        <div class="pb-3 pt-2">
+       <form>
+             <div class="pb-3">
+                 <label>
+                <input type="radio" name="customerType" value="corporate" checked /> Corporate
+                </label>
+                 <label>
+                <input type="radio" name="customerType" value="individual" /> Individual
+            </label>
+             </div>
+         <hr />
+
+          <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 ms-3 ps-3">
+                        <label for="Name">Customer Name<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-7">
+                        <select id="Name" class="form-control btn-sm" style="height: 35px;">
+                            <option value="" disabled selected>Select Customer Name</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 ms-5">
+                 <div class="row">
+                    <div class="col-4">
+                        <label for="Agenda">Meeting Agenda<span class="text-danger" >*</span></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea id="Agenda" class="form-control" style="height: 50px;" placeholder="Meeting Agenda"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                        <div class="row mb-2">
+                            <div class="col-4 ms-3 ps-3">
+                               <label for="dateInput">Date</label>
+                            </div>
+                            <div class="col-3">
+                                <input style="height: 30px;" type="date" class="form-control" id="dateInput" name="dateInput">
+                            </div>
+                            <div class="col-1">
+                                <label for="time">Time</label>
+                            </div>
+                            <div class="col-3">
+                                 <input style="height: 30px;" type="time" class="form-control" id="time" name="timeInput">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 ms-3 ps-3">
+                                <label for="place">Meeting Place<span class="text-danger">*</span></label>
+                            </div>
+                            <div class="col-7">
+                                <textarea class="form-control" placeholder="Meeting Place" style="height: 30px;" id="place"></textarea>
+                            </div>
+
+                       </div>
+                </div>
+
+
+            <div class="col-5 ms-5 mt-2">
+                 <div class="row">
+                    <div class="col-4">
+                        <label for="Discussion">Meeting Discussion<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea id="Discussion" class="form-control" placeholder="Meeting Discussion" style="height: 50px;"> </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+         <div class="row mb-2">
+            <div class="col-6 mt-2">
+                <div class="row">
+                    <div class="col-3 ms-3 ps-3">
+                        <label for="ClintSide">Attends From Clint Side<span class="text-danger">*</span></label>
+                    </div>
+
+                    <div class="col-7 ms-5 ps-3">
+                         <textarea id="ClintSide" class="form-control" style="height: 50px;" placeholder="Present Clint Side"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 ms-5">
+                 <div class="row">
+                    <div class="col-4">
+                        <label for="decision">Meeting Decision<span class="text-danger" >*</span></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea id="decision" class="form-control" style="height: 50px;" placeholder="Meeting Decision"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-6 mt-2">
+                <div class="row">
+                    <div class="col-4 ms-3 ps-3">
+                        <label for="HostSide">Attends From Host Side<span class="text-danger">*</span></label>
+                    </div>
+
+                    <div class="col-7">
+                         <textarea id="HosetSide" class="form-control" style="height: 50px;" placeholder="Present Self Side"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 ms-5">
+                 <div class="row">
+
+                </div>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+
+
+
+    <!-- Product Information-->
+    <div class="container card mb-2 shadow p-3 bg-white rounded">
+
+        <form class="pt-3 pb-4">
+         <div class="row">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-4 ms-3 ps-3">
+                        <label for="product">Interested Product Service<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-7">
+                        <select id="product" class="form-control btn-sm" style="height: 40px;">
+                            <option>Select Product/Service Interested</option>
+                            @foreach (var product in ViewBag.Products)
+                            {
+                                    <option value="@product.Id">@product.ProductName</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-7">
+                <div class="row">
+                    <div class="col-4 ms-3 ps-3">
+                        <label for="quantity">Quantity<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="quantity" name="quantity" style="height: 30px;" type="number" min="0">
+                    </div>
+
+                     <div class="col-2">
+                        <label for="Unit">Unit<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-2">
+                        <input class="form-control" id="Unit" name="Unit" style="height: 30px;" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class=" ps-3 mt-3" >
+         <button class="btn fs-6" style="background-color:#cfcfcf; width:100px;"><i class="bi bi-plus-square"></i> Add</button>
+        </div>
+        </form>
+    </div>
+
+
+
+     <!-- Store Procedure Section-->
+
+     <div class="container card mt-3 shadow p-3 bg-white rounded">
+         <div class="pb-5">
+             <table class="table table-bordered " >
+              <thead>
+                <tr>
+                  <th scope="col">SL#</th>
+                  <th scope="col">Interested Product/Service Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Unit</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                </tr>
+             </tbody>
+         </table>
+         </div>
+
+    </div>
+         <div class="mt-5 mt-5 mb-2" >
+         <button class="btn fs-6 me-3" style="background-color:#cfcfcf; width:80px;"><i class="bi bi-file-earmark-arrow-down fw-bold"></i>Save</button>
+          <button class="btn fs-6" style="background-color:#cfcfcf; width:100px;"><i class="bi bi-arrow-clockwise fw-bold"></i>Refresh</button>
+        </div>
+
+@section Scripts {
+        <script>
+            $(document).ready(function () {
+                // Function to populate the products dropdown
+                function populateProductsDropdown() {
+                    $.ajax({
+                        url: '@Url.Action("GetProducts", "Product")',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            var dropdown = $("#product");
+                            dropdown.empty();
+                            dropdown.append('<option value="" disabled selected>Select Product/Service Interested</option>');
+                            $.each(data, function (index, item) {
+                                dropdown.append($('<option></option>').val(item.id).text(item.productName).data('unit', item.unit));
+                            });
+                            updateUnit();
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                }
+
+                // Function to update the Unit field based on the selected product
+                function updateUnit() {
+                    var selectedOption = $("#product option:selected");
+                    var unitValue = selectedOption.data("unit");
+                    $("#Unit").val(unitValue || '');
+                }
+
+                // Call the function on page load
+                populateProductsDropdown();
+
+                // Call the function whenever the user selects a different product from the dropdown
+                $("#product").on("change", function () {
+                    updateUnit();
+                });
+            });
+        </script>
+}
